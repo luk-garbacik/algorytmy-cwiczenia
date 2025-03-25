@@ -1,0 +1,61 @@
+# Zadanie 2
+
+squares = lambda x: [i**2 for i in range(1, x+1)]
+print(squares(5))  # Wynik: [1, 4, 9, 16, 25]
+
+# Zadanie 3
+
+numbers = [1, 2, 3, 5, 8, 3, 0, 7]
+filtered_numbers = list(filter(lambda n: n > 4, numbers))
+print(filtered_numbers)  # Wynik: [5, 8, 7]
+
+# Zadanie 4
+
+def string_generator():
+    s = "spam"
+    for i in range(1, len(s)+1):
+        yield s[:i]
+
+print(list(string_generator()))  # Wynik: ['s', 'sp', 'spa', 'spam']
+
+# Zadanie 5
+
+def decorator(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return f"{func.__name__}{args} = {result}"
+    return wrapper
+
+@decorator
+def equation(a, b, c):
+    return a * b + c
+
+print(equation(2, 3, 4))  # Wynik: "equation(2, 3, 4) = 10"
+
+# Zadanie 6
+
+def newton_symbol(n, k):
+    if k == 0 or k == n:
+        return 1
+    else:
+        return newton_symbol(n-1, k-1) + newton_symbol(n-1, k)
+
+print(newton_symbol(5, 3))  # Wynik: 10
+
+# Zadanie 7
+
+def test_set_operations():
+    A = {1, 2, 3, 4, 5}
+    B = {4, 5, 6, 7, 8}
+
+    union = A | B
+    intersection = A & B
+    difference = A - B
+    symmetric_difference = A ^ B
+
+    print("Union:", union)
+    print("Intersection:", intersection)
+    print("Difference:", difference)
+    print("Symmetric Difference:", symmetric_difference)
+
+test_set_operations()
